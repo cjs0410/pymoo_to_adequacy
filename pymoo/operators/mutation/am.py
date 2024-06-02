@@ -15,9 +15,9 @@ class AdequacyMutation(Mutation):
         for i, row in enumerate(X):
             for j in range(len(row)):
                 if row[j]:
-                    prob_var[i][j] = self.adeq_scores[0][j]
-                else:
                     prob_var[i][j] = self.adeq_scores[1][j]
+                else:
+                    prob_var[i][j] = self.adeq_scores[0][j]
                     
         flip = np.random.random(X.shape) < prob_var
         Xp[flip] = ~X[flip]
